@@ -7,7 +7,6 @@ import time
 
 #Initialize Chrome Driver
 driver=webdriver.Chrome(executable_path='chromedriver')
-fitRows=[]
 xPathInit='//*[@id="searchMatrix"]/div[2]/table/tbody/tr['
 xPathEnd=']/td[3]'
 
@@ -17,21 +16,21 @@ driver.maximize_window()
 dateSelect=driver.find_element(By.ID, 'SearchForm_Date')
 dateSelect.click()
 dateSelect.clear()
-dateSelect.send_keys('2/2/2022') #change this input to a variable i can type in
+dateSelect.send_keys(Utility.DATE) #change this input to a variable i can type in
 dateSelect.submit()
 time.sleep(2)
 
 
 table=driver.find_element(By.XPATH, '//*[@id="searchMatrix"]/div[2]/table/tbody')
 index = 1
-earlyTime = datetime.strptime("8:00AM", "%I:%M%p")
-latestTime = datetime.strptime("2:00PM", "%I:%M%p")
+earlyTime = datetime.strptime(Utility.earlyTime, "%I:%M%p")
+latestTime = datetime.strptime(Utility.latestTime, "%I:%M%p")
 
 for row in table.find_elements(By.XPATH, './tr'): #ELEMENTS vs ELEMENT
      teeTime=row.find_element(By.CLASS_NAME, 'mtrxTeeTimes')
      players=row.find_element(By.CLASS_NAME, 'matrixPlayers')
      if(Utility.checkTime(teeTime.text, players.text, earlyTime, latestTime)):
-          print(index)
+          #print(index)
           break
      else:
           index += 1
@@ -50,16 +49,16 @@ button.click() #gets us to sign in page
 time.sleep(1)
 
 
-#emailField=driver.find_element(By.ID, 'EmailAddress')
-#passwordField=driver.find_element(By.ID, 'Password')
-#emailField.send_keys(Account.EMAIL)
-#passwordField.send_keys(Account.PASSWORD)
-#button=driver.find_element(By.CLASS_NAME, 'ok')
-#button.click()
-#time.sleep(1)
+emailField=driver.find_element(By.ID, 'EmailAddress')
+passwordField=driver.find_element(By.ID, 'Password')
+emailField.send_keys(Account.EMAIL)
+passwordField.send_keys(Account.PASSWORD)
+button=driver.find_element(By.CLASS_NAME, 'ok')
+button.click()
+time.sleep(1)
 
-#button=driver.find_element(By.CLASS_NAME, 'ok')
-#button.click()
+button=driver.find_element(By.CLASS_NAME, 'ok')
+button.click()
 
 ###
 #To Do:
