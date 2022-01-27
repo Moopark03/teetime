@@ -16,7 +16,7 @@ driver.maximize_window()
 dateSelect=driver.find_element(By.ID, 'SearchForm_Date')
 dateSelect.click()
 dateSelect.clear()
-dateSelect.send_keys(Utility.DATE) #change this input to a variable i can type in
+dateSelect.send_keys(Utility.DATE) #Automated 7 days ahead from the date the script runs
 dateSelect.submit()
 time.sleep(2)
 
@@ -35,7 +35,7 @@ for row in table.find_elements(By.XPATH, './tr'): #ELEMENTS vs ELEMENT
      else:
           index += 1
 
-finalXpath=xPathInit + str(index) + xPathEnd #creating XPath to the confirm button on the correct time. Just need to pass the correct row number instead of str(2)
+finalXpath=xPathInit + str(index) + xPathEnd #creating XPath to the confirm button on the correct time.
 picks=driver.find_element(By.XPATH, finalXpath)
 
 button=picks.find_element(By.CLASS_NAME, 'ok')
@@ -45,7 +45,7 @@ time.sleep(1)
 numPlayers=driver.find_element(By.ID, 'Players2')
 numPlayers.click()
 button=driver.find_element(By.CLASS_NAME, 'ok')
-button.click() #gets us to sign in page
+button.click()
 time.sleep(1)
 
 
@@ -59,8 +59,3 @@ time.sleep(1)
 
 button=driver.find_element(By.CLASS_NAME, 'ok')
 button.click()
-
-###
-#To Do:
-#1. Clean up code
-#2. Automate when to run script

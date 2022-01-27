@@ -10,5 +10,5 @@ def checkTime(teeTime, players, earlyTime, latestTime):
 calculateDate = date.today() + timedelta(days = 7)
 DATE = calculateDate.strftime("%m/%d/%Y")
 
-earlyTime='8:00AM'
-latestTime='2:00PM'
+earlyTime='9:00AM'
+latestTime='10:30AM'
