@@ -1,8 +1,8 @@
-#GOLF PLAYERS!
+# GOLF PLAYERS!
 
-##Are you sick of people with no lives booking all of the good tee times at San Jose Municipal Golf as soon as they become available? I AM!
+## Are you sick of people with no lives booking all of the good tee times at San Jose Municipal Golf as soon as they become available? I AM!
 
-##Instructions:
+## Instructions:
 
 **Create a file called Account.py**: Create two variables called EMAIL and PASSWORD. Assign your account information in there.
 **Open Utility.py**: Set your earliest time you want to play and the latest time you want to play. Keep in mind it will select the earliest as possible. Enter the data in the format: "8:00AM".
